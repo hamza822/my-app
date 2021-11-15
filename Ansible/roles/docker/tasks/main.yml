@@ -2,17 +2,17 @@
 # tasks file for docker
 - name: create image docker
   docker_image:
-    name: my-app
+    name: myapp
     build:
-     path: /var/lib/jenkins/workspace/Pipeline LC
+     path: /var/lib/jenkins/workspace/LC
      pull: no
     source: build
     state: present
     force_source: true
 - name: run container docker
   docker_container:
-    name: my-app_container
-    image: my-app:latest
+    name: myapp_container
+    image: myapp:latest
     state: started
     recreate: true
     ports:
