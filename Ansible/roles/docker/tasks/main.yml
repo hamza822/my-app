@@ -1,0 +1,19 @@
+---
+# tasks file for docker
+- name: create image docker
+  docker_image:
+    name: myappl
+    build:
+     path: /var/lib/jenkins/workspace/CD-pipeline
+     pull: no
+    source: build
+    state: present
+    force_source: true
+- name: run container docker
+  docker_container:
+    name: myapp_container
+    image: myappl:latest
+    state: started
+    recreate: true
+    ports:
+     - "4200:80"
