@@ -4,14 +4,14 @@
   docker_image:
     name: my-app
     build:
-     path: /var/lib/jenkins/workspace/LC
+     path: /var/lib/jenkins/workspace/Pipeline LC
      pull: no
     source: build
     state: present
     force_source: true
 - name: run container docker
   docker_container:
-    name: myapp_container
+    name: my-app_container
     image: my-app:latest
     state: started
     recreate: true
